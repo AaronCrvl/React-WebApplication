@@ -1,0 +1,71 @@
+﻿#RightBlock {
+    height: 1920px;
+    width: 100%;
+    padding: 0px;
+    background-color: rebeccapurple;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+#MainRightBlock {
+    padding: 30%;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+#UserGrid {
+    padding-top: 5%;
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    width: 400px;
+}
+
+#UsernamePassword {
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    display: grid;
+}
+
+#EnterGetAccount {
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    display: inline-grid;
+}
+
+.form-control {
+    text-align: center;
+    height: 50px;
+}
+
+.input-group {
+    width: 400px;
+    text-align: center;
+    padding: 10px;
+}
+
+.input-group mb-3 {
+    text-align: center;
+    padding: 10px;
+    width: 400px;
+    height: 50%;
+}
+
+.input-group-text {
+    text-align:center;    
+}
+
+.btn, btn-primary, btn-secondary {
+    padding: 10px;
+    height: 50px;
+    width: 400px;
+    background-color: darkslateblue;
+}
+
+.btn-primary {
+    background-color:aqua;
+}
