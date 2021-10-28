@@ -5,21 +5,11 @@ import { RightBlock } from './components/RightBlock';
 import '../src/components/Css/App.css';
 
 export default class App extends Component {
-    displayName = App.name
+    displayName = App.name    
 
-    //render() {
-    //  return (
-    //    <Layout>
-    //      <Route exact path='/' component={Home} />
-    //      <Route path='/counter' component={Counter} />
-    //      <Route path='/fetchdata' component={FetchData} />
-    //    </Layout>
-    //  );
-    //}
-
-    render() {
+    render() {        
         return (
-            <div class="row">
+            <div class="row">                                
                 <div class="col" id="colLeft">
                     <LeftBlock></LeftBlock>
                 </div>

@@ -10,15 +10,28 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
-h2{
+#RegistrationBlock {    
+    display: inline-table;
+    height: 1920px;
+    width: 80%;
+    padding-top: 300px;
+}
+
+h2 {
     font-size: 80px;
     border: 55px;
+}
+
+#Gif {
+    text-align: center;
+    width: 150px;
+    height: 150px;
 }
 
 #InsideBlock {
     height: 1920px;
     width: 100%;
-    padding-top: 500px;
+    padding-top: 300px;
 }
 
 #BackgroundImage {
@@ -28,4 +41,11 @@ h2{
 #ButtonArea {
     position: relative;
     text-align: -webkit-center;
+}
+
+#CloseButton {
+    position: relative;
+    text-align: -webkit-center;
+    display: inline-table;
+    padding-top: 300px;
 }
