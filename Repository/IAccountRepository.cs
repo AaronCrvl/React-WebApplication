@@ -8,6 +8,6 @@ namespace WebApplication1.Repository
 {
     public interface IAccountRepository
     {
-        string Signin();
+        Account Signin(string name, string password);
     }
 }

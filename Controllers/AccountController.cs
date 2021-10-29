@@ -12,24 +12,23 @@ namespace WebApplication1.Controllers
     [Route("api")]
     public class AccountController : Controller
     {
-        //private readonly IAccountRepository AccountRepo;
+        private readonly IAccountRepository AccountRepo;
 
-        //public AccountController(IAccountRepository _AccountRepo)
-        //{
-        //    this.AccountRepo = _AccountRepo;
-        //}
+        public AccountController(IAccountRepository _AccountRepo)
+        {
+            this.AccountRepo = _AccountRepo;
+        }
 
         private readonly AppDbContext Context;        
 
-        [HttpGet("SignIn")]
-        public IActionResult SingIn()
+        [HttpGet("SignIn/{name}/{password}")]
+        public IActionResult SingIn(string name, string password)
         {
-            return new ObjectResult("API CALLED SUCESSFULLY");
-            //var account = Context.Find(typeof(Account), "TEST");
-            //if (account == null)
-            //    return new ObjectResult(new String("API CALLED - NULL OBJECT"));
-            //else
-            //    return new ObjectResult(account);
+            var acct = AccountRepo.Signin(name, password);
+            if (acct == null)
+                return new ObjectResult("Account not found.");
+            else
+                return new ObjectResult(acct);
         }
     }
 }

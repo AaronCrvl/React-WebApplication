@@ -7,7 +7,7 @@
     width: 100%;
     background-image: url("../../images/Atoms_Background.jpeg");
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;    
 }
 
 #RegistrationBlock {    
@@ -48,4 +48,58 @@ h2 {
     text-align: -webkit-center;
     display: inline-table;
     padding-top: 300px;
+}
+
+#InputGroup {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    background: -webkit-linear-gradient(right, rgb(196 5 199), rgb(6 20 52));
+    height: 1920px;
+    width: 100%;
+    padding-top: 100px;
+    padding-left: 500px;
+}
+
+label {
+    display: inline-flex;
+}
+
+table {
+    height: 1920px;
+    width: 80%;
+    padding: 20px;
+}
+
+tr {
+    display: inline-flex;
+}
+th {
+    text-align: left;
+    position: relative;
+    display: inline-grid;
+}
+
+#HeadTitle {
+    font-size: 72px;
+    background: linear-gradient(to right, #000000 0%, #7330f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+span {
+    align-content: flex-end;
+}
+
+
+#InputTable {
+    padding: 10px;
+    height: fit-content;
+    width: fit-content;
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 20px solid #ffffff;
+    background: #d9dbda;
+    margin: 10px;
+    padding-left: 500px;
 }

@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ReactWebApp.Repository;
 using WebApplication1.Models;
+using WebApplication1.Repository;
 
 namespace WebApplication1
 {
@@ -24,6 +26,8 @@ namespace WebApplication1
         {
             services.AddDbContext<AppDbContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<IAccountRepository, AccountRepository>();
+
             services.AddMvc();
         }
 

@@ -9,17 +9,23 @@ namespace ReactWebApp.Repository
 {
     public class AccountRepository : IAccountRepository
     {
-        private readonly AppDbContext contexto;
+        private readonly AppDbContext context;
 
         public AccountRepository(AppDbContext _contexto)
         {
-            contexto = _contexto;
+            context = _contexto;
         }
 
-        public string Signin()
+        public Account Signin(string name, string password)
         {
-            //Account acct =  contexto.Account.Find("TEST");
-            return new String("API CALEED SUCESS");
+            var dbEntry = context.Account.FirstOrDefault(
+                acc => acc.Nanme == name &&
+                acc.User_Password == password);
+
+            if (dbEntry != null)
+                return dbEntry;
+            else
+                return null;
         }
     }
 }
