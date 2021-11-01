@@ -9,5 +9,6 @@ namespace WebApplication1.Repository
     public interface IAccountRepository
     {
         Account Signin(string name, string password);
+        bool Register(string name, string password, string email);
     }
 }

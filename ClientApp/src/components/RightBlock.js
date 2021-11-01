@@ -46,6 +46,8 @@ export class RightBlock extends Component {
     }
 
     Validate = () => {
+        document.querySelector("#LoadingIcon").style.visibility = "visible";
+
         GetData();
 
         if (GotName != 1 && GotPassword != 1) {
@@ -57,11 +59,9 @@ export class RightBlock extends Component {
             const url = 'https://localhost:44305/api/SignIn/' + GetName() + '/' + GetPassword();
             axios.get(url)
                 .then(response => {
-                    if (response.data != 'Account not found.') {
-                        //ReturnAccountModel: response.data;
-                        this.setState({
-                            SignedIn: true
-                        });
+                    if (response.data != 'Account not found.') {                        
+                        this.setState({ SignedIn: true });
+                        document.querySelector("#LoadingIcon").style.visibility = "hidden";
                     }
                     else {
                         alert('Request Failed! ' + 'Error: ' + response.data);
@@ -70,7 +70,7 @@ export class RightBlock extends Component {
                 .catch(error => {
                     console.log(error);
                 });
-        }
+        }        
     }
 
     render() {
@@ -100,6 +100,7 @@ export class RightBlock extends Component {
 
         return (
             <div id="RightBlock">
+                <div id="LoadingIcon"></div>
                 <div id="MainRightBlock">
                     <h1>Welcome back,</h1>
                     <div id="UserGrid">

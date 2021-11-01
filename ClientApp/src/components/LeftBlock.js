@@ -2,7 +2,36 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import './Css/LeftBlock.css';
+import { myModal } from '../components/Modal';
 import axios from 'axios';
+
+function Refresh() {
+    window.location.reload(false);
+}
+
+function DataFilled() {
+    var Name = null, Password = null, Email = null;
+
+    Name = document.querySelector("#Username").value;
+    Password = document.querySelector("#Password").value;
+    Email = document.querySelector("#Email").value;
+
+    if (Name == null || Password == null || Email == null) {
+        return alert("Required fields were not filed.");
+    }
+    else {
+        const url = 'https://localhost:44305/api/Register/' + Name + '/' + Password + '/' + Email;
+        axios.post(url)
+            .then(response => {
+                if (response.status == 200) {
+                    alert(response.data);
+                }
+                else { alert(response.data); }
+            })
+            .catch(error => { console.log(error) });
+    }
+}
+
 
 export class LeftBlock extends Component {
     displayName = LeftBlock.name;
@@ -23,52 +52,58 @@ export class LeftBlock extends Component {
             document.querySelector("#colRight").remove();
             document.querySelector("#colLeft").style.height = "1920px";
             document.querySelector("#colLeft").style.width = "100%";
-            document.querySelector("#colLeft").style.background = "-webkit-linear-gradient(right, rgb(196 5 199), rgb(6 20 52))";            
+            document.querySelector("#colLeft").style.background = "-webkit-linear-gradient(right, rgb(196 5 199), rgb(6 20 52))";
 
             return (
-                <div id="LeftBlock">
-                    <label id="InputGroup">
-                        <table id="InputTable">
-                            <thead>
-                                <label id="HeadTitle">Enter your data:</label>
-                            </thead>
-                            <th>
-                                <tr>
-                                    <label>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">Username</span>
-                                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"></input>
-                                        </div>
-                                    </label>
-                                </tr>
-                                <tr>
-                                    <label>
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"></input>
-                                            <span class="input-group-text" id="basic-addon2">Email@example.com</span>
-                                        </div>
-                                    </label>
-                                </tr>
-                                <tr>
-                                    <label>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text">Date</span>
-                                            <input type="text" class="form-control" placeholder="Server" aria-label="Server"></input>
-                                        </div>
-                                    </label>
-                                </tr>
-                                <tr>
-                                    <label>
-                                        <div class="input-group">
-                                            <span class="input-group-text">With textarea</span>
-                                            <textarea class="form-control" aria-label="Write something!"></textarea>
-                                        </div>
-                                    </label>
-                                </tr>
-                            </th>
-                        </table>
-                    </label>
-                </div>
+                <table id="InputTable">
+                    <thead>
+                        <label id="HeadTitle">Enter your data:</label>
+                    </thead>
+                    <th>
+                        <tr>
+                            <label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Username</span>
+                                    <input type="text" id="Username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"></input>
+                                </div>
+                            </label>
+                        </tr>
+                        <tr>
+                            <label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Username</span>
+                                    <input type="password" id="Password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"></input>
+                                </div>
+                            </label>
+                        </tr>
+                        <tr>
+                            <label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon2">Email@example.com</span>
+                                    <input type="text" id="Email" class="form-control" placeholder="Insert your e-mail." aria-label="Recipient's username" aria-describedby="basic-addon2"></input>
+                                </div>
+                            </label>
+                        </tr>
+                        <tr>
+                            <label>
+                                <div class="input-group">
+                                    <span class="input-group-text">With textarea</span>
+                                    <textarea class="form-control" aria-label="" placeholder="Write something!"></textarea>
+                                </div>
+                            </label>
+                        </tr>
+                        <tr>
+                            <div id="BTN">
+                                <button type="button" class="btn btn-primary" onClick={DataFilled}>Register!</button>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div id="BTN">
+                                <button type="button" class="btn btn-primary" onClick={Refresh}>Get Back to Initial Page</button>
+                            </div>
+                        </tr>
+                    </th>
+                </table>
             );
         }
 
