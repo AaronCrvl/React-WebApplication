@@ -1,0 +1,17 @@
+﻿footer {
+    position: relative;
+    display: contents;
+}
+.navbar {
+    color: white;
+    margin-bottom: 0px;
+}
+
+.navbar {
+    background-color: rebeccapurple;
+    margin-bottom: 0px;
+}
+
+.navbar-light .navbar-brand {
+    color: rgb(255 255 255 / 90%);
+}

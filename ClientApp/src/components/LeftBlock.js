@@ -59,7 +59,7 @@ export class LeftBlock extends Component {
                     <thead>
                         <label id="HeadTitle">Enter your data:</label>
                     </thead>
-                    <th>
+                    <th class="Data">
                         <tr>
                             <label>
                                 <div class="input-group mb-3">

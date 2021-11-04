@@ -1,0 +1,74 @@
+﻿
+#Page {
+    background: black;
+    position: relative;
+    text-align-last: center;
+}
+
+.MainImage {
+    width: 1600px;
+    height: 800px;
+}
+
+.LoggedImage {
+    width: 150px;
+    height: 150px;    
+}
+
+table {
+    text-align: center;
+    height: 1920px;
+    width: 80%;
+    padding: 10px;
+    padding: 20px;
+    position: relative;
+    display: unset;
+}
+
+th {
+    padding: 50px;
+    display: flow-root;
+    font-size: x-large;
+    padding-bottom: 30px;
+}
+
+tr {
+    padding: 10px;
+    display: table-cell;
+    border-left-width: thin;
+}
+
+thead {
+    text-align: center;
+    position: relative;
+    display: block;
+}
+
+tbody {
+    text-align: center;  
+    position: relative;
+    display: block;
+}
+
+p {
+    padding-top: 30px;
+}
+
+#ProjectsTable {
+    background: mediumpurple;
+}
+
+#Projects {
+    position: relative;
+}
+
+.ProjectsRow {
+    padding: 10px;
+    display: table-cell;
+    border-left-width:inherit;
+}
+
+.ProjectData {
+    padding: 2px; 
+ 
+}

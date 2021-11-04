@@ -1,11 +1,13 @@
 ﻿import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { ScrollView } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import './Css/RightBlock.css';
 import './Css/EnterPlatform.css';
-import { myModal } from '../components/Modal'
 import axios from 'axios';
+import { NavBarLoggedPage } from './UserInteration/NavBarLoggedPage';
+import { LoggedPage } from './UserInteration/LoggedPage';
+import { LoggedFooter } from './UserInteration/LoggedFooter';
 
 
 var GotName = 0, GotPassword = 0, DataReady = 0;
@@ -56,12 +58,13 @@ export class RightBlock extends Component {
         else {
             DataReady = 1;
 
-            const url = 'https://localhost:44305/api/SignIn/' + GetName() + '/' + GetPassword();
+            const url = 'https://localhost:44305/api/SignIn/' + GetName() + '/' + GetPassword();            
             axios.get(url)
                 .then(response => {
-                    if (response.data != 'Account not found.') {                        
-                        this.setState({ SignedIn: true });
-                        document.querySelector("#LoadingIcon").style.visibility = "hidden";
+                    this.setState({ SignedIn: true });                    
+                    if (response.status == 200) {
+                        this.setState({ SignedIn: true });    
+                        document.querySelector("#colLeft").remove();                                                   
                     }
                     else {
                         alert('Request Failed! ' + 'Error: ' + response.data);
@@ -70,39 +73,28 @@ export class RightBlock extends Component {
                 .catch(error => {
                     console.log(error);
                 });
-        }        
+        }
     }
 
     render() {
 
-        if (this.state.SignedIn) {
-            document.querySelector("#colLeft").remove();
-            document.querySelector("#colRight").style.height = "1920px";
-            document.querySelector("#colRight").style.width = "1080px";
+        if (this.state.SignedIn) {                                        
+            document.querySelector("#colRight").style.width = "1080px";                     
 
             return (
                 <div id="colRight">
-                    <div id="NewBlock">                        
-                        <div id="SignedInMessage">
-                            <div id="Message" class="alert alert-success d-flex align-items-center" role="alert">
-                                <img src="https://www.suunto.com/contentassets/0b698f770c5e423ea2336ce649e0cabe/icon-success.png" width="30px" height="30px"></img>
-                                <div>You entered the platform, enjoy!</div>
-                            </div>
-                            <p> {GetReturnAccountModel} </p>
-                            <div id="Btn">
-                                <button type="button" class="btn btn-primary" onClick={Refresh}>Click to refresh WebPage</button>
-                            </div>
-                        </div>
-                    </div>
+                    <NavBarLoggedPage></NavBarLoggedPage>
+                    <LoggedPage></LoggedPage>
+                    <LoggedFooter></LoggedFooter>
                 </div>
             );
         }
 
         return (
-            <div id="RightBlock">
-                <div id="LoadingIcon"></div>
+            <div id="RightBlock">                
                 <div id="MainRightBlock">
                     <h1>Welcome back,</h1>
+                    <div id="LoadingIcon"></div>
                     <div id="UserGrid">
                         <div id="UsernamePassword">
                             <label class="input-group mb-3">

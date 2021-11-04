@@ -1,0 +1,26 @@
+﻿a{
+    color: white;
+}
+html {
+    color: white;
+}
+
+.navbar {
+    background-color: rebeccapurple;
+    margin-bottom: 0px;
+}
+.navbar-light .navbar-brand {
+    color: rgb(255 255 255 / 90%);
+}
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+.LoggedImageNAv{
+    float: left;
+    position: relative;
+    width: 50px;
+    height:50px;
+    display: inline-flex;
+    padding-left: 15px;
+}
